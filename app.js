@@ -16,7 +16,6 @@ app.use(conditional());
 app.use(etag());
 app.use(cors({
     origin: process.env.OTHER_SUBDOMAIN_URL,
-    //origin: "*",
     allowMethods: ['GET', 'POST']
 }));
 
@@ -27,14 +26,13 @@ var emptypug = emptyCompiledFunction({});
 
 router.get('/sso', sso);
 router.get('/ssu', ssu);
-//router.get('/auth', login);
 router.get('/login', login);
 router.get('/signup', signup);
 router.get('/pdfreport', pdfreport);
 router.get(/^\/local(?:\/|$)/, local);
 router.get(/^\/cdn(?:\/|$)/, library);
 router.get(/^\/(?:(?!(cdn|sso|local|login|pdfreport|suspend)).)*(?:\/|$)/, main);
-//router.get(/^\/(?:(?!(cdn|sso|local|auth)).)*(?:\/|$)/, main);
+
 app.use(router.routes());
 
 var servio = app.listen(4001);
@@ -109,9 +107,7 @@ async function main(ctx) {
     var reqPage = ctx.request.path.substr(1);
     if (fs.statSync(filename).isDirectory()) {
         page = filename.split('\\www\\')[1];
-    //    filename += '\\index.html';
     }
-    //var html = await fread(filename, 'utf8');
     var html = htmlpug;
     var token = ctx.cookies.get('token');
     console.log(token);
@@ -137,10 +133,6 @@ async function main(ctx) {
 }
 
 async function login(ctx) {
-    //var filename = path.join(urlWindows, ctx.request.path);
-    //if (fs.statSync(filename).isDirectory())
-    //    filename += '/index.html';
-    //var html = await fread(filename, 'utf8');
     ctx.body = emptypug;
 }
 
@@ -150,7 +142,6 @@ async function pdfreport(ctx) {
         filename += '/index.html';
     var html = await fread(filename, 'utf8');
     ctx.body = html;
-    //ctx.body = emptypug;
 }
 
 async function signup(ctx) {
