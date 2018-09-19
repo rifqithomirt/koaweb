@@ -1,0 +1,37 @@
+{
+  "name": "koa",
+  "version": "1.0.1",
+  "description": "Web Engine include mailing and authentication",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^2.5.0",
+    "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "cross-cookies": "^1.0.0",
+    "jsonwebtoken": "^7.4.1",
+    "kcors": "^2.2.1",
+    "koa": "^2.3.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-proxy": "^0.8.0",
+    "koa-router": "^7.2.1",
+    "nodemailer": "^4.4.1",
+    "pug": "^2.0.3",
+    "socket.io": "^2.1.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "web",
+    "server"
+  ],
+  "author": "gc",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "koaweb"
+  }
+}

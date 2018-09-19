@@ -1,0 +1,131 @@
+doctype html
+html(lang="en")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    // Meta, title, CSS, favicons, etc.
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title Weighing Module
+    link(href="/cdn/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/cdn/css/font-awesome.min.css" rel="stylesheet")
+    link(href="/cdn/css/custom.min.css" rel="stylesheet")
+    link(href="/cdn/css/bootstrap-table.css" rel="stylesheet")
+    link(href="/cdn/css/bootstrap-select.min.css" rel="stylesheet")
+    link(href="/cdn/css/datatables.min.css" rel="stylesheet")
+    link(href="/cdn/css/jquery-confirm.min.css" rel="stylesheet")
+    link(href="/local/index.css" rel="stylesheet")
+  body.nav-md
+    .container.body
+      .main_container
+        .col-md-3.left_col
+          .left_col.scroll-view
+            .navbar.nav_title(style="border: 0;")
+              a.site_title(href="/home")
+                i.fa.fa-balance-scale(aria-hidden="true")
+                span Weighing Module
+            .clearfix
+            // menu profile quick info
+            .profile.clearfix
+              .profile_pic
+                img.img-circle.profile_img(src="/cdn/images/img.jpg" alt="...")
+              .profile_info
+                span Welcome,
+                h2#user(style="text-transform:capitalize;")
+            // /menu profile quick info
+            br
+            // sidebar menu
+            #sidebar-menu.main_menu_side.hidden-print.main_menu
+              .menu_section
+                h3 General
+                ul.nav.side-menu
+                  li
+                    a(href="/home")
+                      i.fa.fa-home
+                      |  Home
+                  li
+                    a(href="/orders")
+                      i.fa.fa-edit
+                      |  Orders
+                  li
+                    a(href="/stocks")
+                      i.fa.fa-table
+                      |  Stocks
+                  li
+                    a(href="/report")
+                      i.fa.fa-file-text(aria-hidden="true")
+                      |  Report
+                  li
+                    a
+                      i.fa.fa-cog(aria-hidden="true")
+                      |  Settings 
+                      span.fa.fa-chevron-down
+                    ul.nav.child_menu
+                      li
+                        a(href="/setting") User Settings
+                      li
+                        a(href="/selection") Scale Settings
+                      li
+                        a(href="/newuser") New User
+                      li
+                        a(href="/sequence") Sequence Setting
+                      li
+                        a(href="/thiamine") Thiamine Master
+                      li
+                        a(href="/mixgroup") Mixing Group
+                      li
+                        a(href="/device") Device Setting
+                        
+            // /sidebar menu
+            // /menu footer buttons
+            .sidebar-footer.hidden-small
+            // /menu footer buttons
+        // top navigation
+        .top_nav
+          .nav_menu
+            nav
+              .nav.toggle
+                a#menu_toggle
+                  i.fa.fa-bars
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a.user-profile.dropdown-toggle(href="javascript:;" data-toggle="dropdown" aria-expanded="false")
+                    img(src="/cdn/images/img.jpg" alt="")
+                    i#user2(style="text-transform:capitalize;")
+                    span.fa.fa-angle-down
+                  ul.dropdown-menu.dropdown-usermenu.pull-right
+                    li
+                      a(href="/login")
+                        i.fa.fa-sign-out.pull-right
+                        |  Log Out
+        // /top navigation
+        // page content
+        #content.right_col(role="main")
+        // /page content
+        // footer content
+        footer
+          .pull-right
+            | v0.2 
+            a  @GC
+          .clearfix
+        // /footer content
+    script(src="/cdn/js/jquery.min.js")
+    script(src="/cdn/js/bootstrap.min.js")
+    script(src="/cdn/js/custom.min.js")
+    script(src="/cdn/js/jquery-confirm.min.js")
+    script(src="/cdn/js/bootstrap-table.js")
+    script(src="/cdn/js/bootstrap-select.min.js")
+    script(src="/cdn/js/state-machine.js")
+    script(src="/cdn/js/datatables.min.js")
+    script(src="/cdn/js/socket.io.js")
+    script(src="/cdn/js/api.js")
+    script(src="/cdn/js/require.js")
+    script.
+      function getCook(cookiename)
+      {
+      var cookiestring=RegExp(""+cookiename+"[^;]+").exec(document.cookie);
+      return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
+      }
+      $('#user').text(getCook('user'));
+      $('#user2').text(getCook('user'));
+    script(src="/local/index.js")
